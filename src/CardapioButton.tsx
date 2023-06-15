@@ -1,13 +1,14 @@
 import { useEffect, useState } from "preact/hooks";
+import cardapioUrl from "./assets/cardapio.pdf";
 
 export function CardapioAnchor(props: any) {
-  let [downloadUrl, setDownloadUrl] = useState("/cardapio.pdf");
+  let [downloadUrl, setDownloadUrl] = useState(cardapioUrl);
 
   useEffect(() => {
-    fetch("/cardapio.pdf")
+    fetch(downloadUrl)
       .then(v => v.blob())
       .then(v => setDownloadUrl(URL.createObjectURL(v)));
-  }, [setDownloadUrl]);
+  }, [downloadUrl, setDownloadUrl]);
 
   function downloadCached(e: Event) {
     if (downloadUrl.startsWith("blob")) {
