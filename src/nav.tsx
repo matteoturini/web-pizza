@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'preact/hooks'
 import './nav.scss'
 import { CardapioAnchor } from './CardapioButton'
 
